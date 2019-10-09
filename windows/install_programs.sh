@@ -4,6 +4,12 @@ echo "Installing dell command update"
 
 choco install dellcommandupdate-uwp -y
 
+## FIRA CODE
+
+echo "Installing fira code"
+
+choco install firacode -y
+
 ## LIGHTSHOT
 
 echo "Installing lightshot"
