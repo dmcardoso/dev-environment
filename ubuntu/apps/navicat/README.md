@@ -15,6 +15,14 @@ https://github.com/DoubleLabyrinth/navicat-keygen/releases
 
 Para os proximos passos é necessario entrar em modo root(Comando "su").
 
+## Caso o sudo não esteja disponível é necessário alterar sua senha com:
+
+```
+sudo -i
+passwd
+exit
+```
+
 **Execute como wine o arquivo "navicat-patcher.exe" extraido na pasta do crack indicando o diretório de libs do Navicat.**  
 > wine navicat-patcher.exe "/opt/navicat/Navicat"
 
