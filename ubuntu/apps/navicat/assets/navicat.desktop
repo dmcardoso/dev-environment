@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Navicat
+Comment=Navicat
+Exec="/opt/navicat/start_navicat" %U
+TryExec=/opt/navicat/start_navicat
+Terminal=false
+Type=Application
+Icon=/opt/navicat/icon.png
+Categories=Development;
+StartupWMClass=Navicat.exe
