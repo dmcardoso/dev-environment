@@ -8,7 +8,6 @@ fi
 
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 
-
 read -r -p "Instalar o docker? [y/N] " docker
 
 # Atualização de pacotes

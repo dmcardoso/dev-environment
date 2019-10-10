@@ -47,6 +47,7 @@ echo "zplugin light zsh-users/zsh-autosuggestions" >> /home/$USER/.zshrc
 # Adiciona autocomplete para ferramentas comuns como Yarn, Homebrew, NVM, Node, etc. É necessário apenas apertar TAB para completar;
 echo "zplugin light zsh-users/zsh-completions" >> /home/$USER/.zshrc
 
+# Nvm para o zsh
 echo -e "export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm" >> /home/$USER/.zshrc
 
