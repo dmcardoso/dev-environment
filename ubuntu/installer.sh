@@ -140,3 +140,6 @@ sudo apt install unrar -y
 
 ## Drivers
 bash ${BASEDIR}/apps/drivers/video.sh
+
+## Postman
+snap install postman
