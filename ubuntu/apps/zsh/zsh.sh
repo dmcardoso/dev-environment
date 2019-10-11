@@ -33,9 +33,9 @@ echo -e "if [ -f ~/.bash_aliases ]; then\n\
 fi\n" >> /home/$USER/.zshrc
 
 # Instala tema spaceship
-#git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-#ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-#sed -Ei "s/^(ZSH_THEME=\").*(\")$/\1spaceship\2/" /home/$USER/.zshrc
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+sed -Ei "s/^(ZSH_THEME=\").*(\")$/\1spaceship\2/" /home/$USER/.zshrc
 
 # Instala repositório de plugins
 sh -cI "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
@@ -50,5 +50,7 @@ echo "zplugin light zsh-users/zsh-completions" >> /home/$USER/.zshrc
 # Nvm para o zsh
 echo -e "export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm" >> /home/$USER/.zshrc
+
+echo -e "$(cat ~/.bash_profile)" >> /home/$USER/.zshrc
 
 echo ""  >> /home/$USER/.zshrc
