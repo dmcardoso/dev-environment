@@ -113,6 +113,9 @@ if [[ "$docker" == "y" ]]; then
   usermod -aG docker $SUDO_USER
 fi
 
+# Genymotion
+bash ${BASEDIR}/apps/genymotion/genymotion.sh
+
 ## Xampp
 bash ${BASEDIR}/apps/xampp/xampp.sh
 
