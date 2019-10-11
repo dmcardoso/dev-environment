@@ -138,5 +138,8 @@ sudo apt-get install vlc -y
 # Unrar
 sudo apt install unrar -y
 
+# Postman
+bash ${BASEDIR}/apps/postman/postman.sh
+
 ## Drivers
 bash ${BASEDIR}/apps/drivers/video.sh
