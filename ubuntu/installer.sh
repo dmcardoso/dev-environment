@@ -141,5 +141,11 @@ sudo apt install unrar -y
 # Postman
 bash ${BASEDIR}/apps/postman/postman.sh
 
+# Ulauncher
+bash ${BASEDIR}/apps/ulauncher/ulauncher.sh
+
 ## Drivers
 bash ${BASEDIR}/apps/drivers/video.sh
+
+# Executa o script de configuração customizada com o usuário real
+sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh"
