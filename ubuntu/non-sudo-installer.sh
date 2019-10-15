@@ -12,3 +12,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 
 ## Instala oh my zsh
 bash "$BASEDIR/apps/zsh/zsh.sh"
+
+# Copia arquivos de configuração para a pasta do usuário
+bash "$BASEDIR/dotfiles/dotfiles.sh"
