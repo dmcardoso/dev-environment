@@ -141,9 +141,6 @@ sudo apt install unrar -y
 # Postman
 bash ${BASEDIR}/apps/postman/postman.sh
 
-# Ulauncher
-bash ${BASEDIR}/apps/ulauncher/ulauncher.sh
-
 ## Drivers
 bash ${BASEDIR}/apps/drivers/video.sh
 
