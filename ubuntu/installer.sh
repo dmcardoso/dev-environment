@@ -111,7 +111,7 @@ apt install screenruler -y
 apt install gpick -y
 
 ## Zsh
-sudp apt install zsh -y
+apt install zsh -y
 
 if [[ "$docker" == "y" ]]; then
   ## Docker
@@ -122,9 +122,6 @@ if [[ "$docker" == "y" ]]; then
   groupadd docker
   usermod -aG docker $SUDO_USER
 fi
-
-# Genymotion
-bash ${BASEDIR}/apps/genymotion/genymotion.sh
 
 ## Xampp
 bash ${BASEDIR}/apps/xampp/xampp.sh
