@@ -9,21 +9,33 @@ fi
 BASEDIR=$(dirname "$0")
 
 # Download e instalação
-wget "https://www.apachefriends.org/xampp-files/7.3.10/xampp-linux-x64-7.3.10-0-installer.run" -O /tmp/xampp.run
-chmod +x /tmp/xampp.run
-/tmp/xampp.run
-rm -f /tmp/xampp.run
+wget "https://ufpr.dl.sourceforge.net/project/xampp/XAMPP%20Linux/7.3.10/xampp-linux-x64-7.3.10-0-installer.run" -O xampp-installer.run
+chmod +x xampp-installer.run
+./xampp-installer.run
+rm -f ./xampp-installer.run
 
-# Inicializar junto ao sistema
-cp ${BASEDIR}/assets/lampp /etc/init.d/lampp
-chmod +x /etc/init.d/lampp
-update-rc.d lampp defaults
+cat > $USER/.local/share/applications/xampp.desktop <<EOL
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=XAMPP Control Panel
+Comment=Start and Stop XAMPP
+Exec=lxqt-sudo /opt/lampp/manager-linux-x64.run
+Icon=/opt/lampp/htdocs/favicon.ico
+Type=Application
+Terminal=true
+Categories=Development;
+EOL
+
+chmod +x /usr/share/applications/xampp.desktop
+chmod +x $USER/.local/share/applications/xampp.desktop
 
 # Links de acesso
 ln -s /opt/lampp/bin/mysql /usr/local/bin/mysql
 ln -s /opt/lampp/bin/mysqldump /usr/local/bin/mysqldump
 ln -s /opt/lampp/bin/php /usr/local/bin/php
+ln -s /otp/lampp/lampp /usr/local/bin/lampp
 
-# Icone de inicialização
-cp ${BASEDIR}/assets/favicon.ico /opt/lampp/favicon.ico
-cp ${BASEDIR}/assets/xampp.desktop /usr/share/applications/xampp.desktop
+# Permissões
+chmod -R 755 /opt/lampp/htdocs
+chown -R $USER:$USER /opt/lampp/htdocs

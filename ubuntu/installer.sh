@@ -33,8 +33,8 @@ apt install alacarte -y
 ## GParted
 apt install gparted -y
 
-## gksudo
-apt install gksudo -y
+## lxqt
+apt install lxqt -y
 
 # Gerenciador de pacotes latpak
 apt install flatpak -y

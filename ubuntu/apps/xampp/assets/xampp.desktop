@@ -1,7 +1,0 @@
-[Desktop Entry]
- Version=1.0
- Name=Xampp
- Exec=gk/opt/lampp/manager-linux-x64.run
- Icon=/opt/lampp/favicon.ico
- Type=Application
- Categories=Application
