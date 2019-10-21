@@ -123,9 +123,6 @@ if [[ "$docker" == "y" ]]; then
   usermod -aG docker $SUDO_USER
 fi
 
-## Xampp
-bash ${BASEDIR}/apps/xampp/xampp.sh
-
 ## Composer
 bash ${BASEDIR}/apps/composer/composer.sh
 
@@ -140,6 +137,12 @@ bash ${BASEDIR}/apps/postman/postman.sh
 
 ## Drivers
 bash ${BASEDIR}/apps/drivers/video.sh
+
+## Xampp
+bash ${BASEDIR}/apps/xampp/xampp.sh
+
+## Xampp
+bash ${BASEDIR}/apps/jetbrains-toolbox/jetbrains-toolbox.sh
 
 # Executa o script de configuração customizada com o usuário real
 sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh"
