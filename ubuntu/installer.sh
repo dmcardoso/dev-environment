@@ -59,16 +59,16 @@ sudo apt install snapd -y
 bash ${BASEDIR}/apps/java-8/java.sh
 
 ## Simplenote
-snap install simplenote
+snap install simplenote -y
 
 ## Spotify
-snap install spotify
+snap install spotify -y
 
 ## Gimp
-snap install gimp
+snap install gimp -y
 
 ## Inkscape
-snap install inkscape
+snap install inkscape -y
 
 ## Chrome
 bash ${BASEDIR}/apps/chrome/chrome.sh
