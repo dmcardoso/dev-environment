@@ -16,5 +16,5 @@ apt-get install openjdk-8-jdk
 # Libs gráficas 32 bits para o ubuntu
 apt-get install gcc-multilib lib32z1 lib32stdc++6
 
-bash ${BASEDIR}/assets/android-sdk.sh
-bash ${BASEDIR}/assets/oracle-java-8.sh
+echo -e "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bash_profile

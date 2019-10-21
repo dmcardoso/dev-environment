@@ -51,6 +51,6 @@ echo "zplugin light zsh-users/zsh-completions" >> /home/$USER/.zshrc
 echo -e "export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm" >> /home/$USER/.zshrc
 
-echo -e "$(cat ~/.bash_profile)" >> /home/$USER/.zshrc
+echo -e "$(cat /home/$USER/.bash_profile)" >> /home/$USER/.zshrc
 
 echo ""  >> /home/$USER/.zshrc
