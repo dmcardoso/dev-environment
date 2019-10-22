@@ -20,6 +20,9 @@ apt upgrade -y
 # Minhas Fonts
 bash ${BASEDIR}/apps/fonts/fonts.sh
 
+# Copia arquivos de modelos para a pasta do usuário
+bash "$BASEDIR/models/models.sh"
+
 ## Curl
 apt install curl -y
 
