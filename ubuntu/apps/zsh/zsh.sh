@@ -17,7 +17,7 @@ echo -e "SPACESHIP_PROMPT_ORDER=(
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
   exec_time     # Execution time
-  line_sep      # Line break
+  #line_sep      # Line break
   vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
@@ -52,5 +52,3 @@ echo -e "export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.n
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm" >> /home/$USER/.zshrc
 
 echo -e "$(cat /home/$USER/.bash_profile)" >> /home/$USER/.zshrc
-
-echo ""  >> /home/$USER/.zshrc

@@ -9,6 +9,7 @@ fi
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 
 read -r -p "Instalar o docker? [y/N] " docker
+read -r -p "Adicionar variáveis  do android? [y/N] " android_variables
 
 # Atualização de pacotes
 apt update -y
@@ -150,4 +151,9 @@ bash ${BASEDIR}/apps/xampp/xampp.sh
 bash ${BASEDIR}/apps/jetbrains-toolbox/jetbrains-toolbox.sh
 
 # Executa o script de configuração customizada com o usuário real
-sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh"
+sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh" "$android_variables"
+
+echo "Instalação finalizada!"
+
+echo "Adicione o plugin 'bgnotify' ao zsh caso queira notificações para os processos do terminal"
+
