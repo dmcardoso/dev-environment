@@ -13,9 +13,7 @@ tar -xzf jetbrains-toolbox.tar.gz
 
 DIR=$(find . -maxdepth 1 -type d -name jetbrains-toolbox-\* -print | head -n1)
 
-cd $DIR
-./jetbrains-toolbox
-cd $BASEDIR
+./$DIR/jetbrains-toolbox
 
 rm -r $DIR
 rm jetbrains-toolbox.tar.gz
