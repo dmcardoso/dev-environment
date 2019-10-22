@@ -53,7 +53,7 @@ apt update -y
 apt install --install-recommends winehq-stable -y
 
 ## Snap
-sudo apt install snapd -y
+apt install snapd -y
 
 ## Java
 bash ${BASEDIR}/apps/java-8/java.sh
@@ -127,16 +127,21 @@ fi
 bash ${BASEDIR}/apps/composer/composer.sh
 
 # VLC
-sudo apt-get install vlc -y
+apt-get install vlc -y
 
 # Unrar
-sudo apt install unrar -y
+apt-get install unrar -y
 
 # Postman
 bash ${BASEDIR}/apps/postman/postman.sh
 
 ## Drivers
 bash ${BASEDIR}/apps/drivers/video.sh
+
+# Monitor de sistema Stacer
+add-apt-repository ppa:oguzhaninan/stacer -y
+apt-get update -y
+apt-get install stacer -y
 
 ## Xampp
 bash ${BASEDIR}/apps/xampp/xampp.sh
