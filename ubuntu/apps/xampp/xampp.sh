@@ -33,6 +33,8 @@ chmod +x $USER/.local/share/applications/xampp.desktop
 # Links de acesso
 ln -s /opt/lampp/bin/mysql /usr/local/bin/mysql
 ln -s /opt/lampp/bin/mysqldump /usr/local/bin/mysqldump
+ln -s /opt/lampp/bin/mysql_upgrade /usr/local/bin/mysql_upgrade
+ln -s /opt/lampp/bin/mysqlcheck /usr/local/bin/mysqlcheck
 ln -s /opt/lampp/bin/php /usr/local/bin/php
 ln -s /otp/lampp/lampp /usr/local/bin/lampp
 
