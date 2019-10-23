@@ -38,6 +38,7 @@ ln -s /opt/lampp/bin/mysqlcheck /usr/local/bin/mysqlcheck
 ln -s /opt/lampp/bin/php /usr/local/bin/php
 ln -s /otp/lampp/lampp /usr/local/bin/lampp
 
+
 # Permissões
 chmod -R 755 /opt/lampp/htdocs
 chown -R $USER:$USER /opt/lampp/htdocs
