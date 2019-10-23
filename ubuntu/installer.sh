@@ -157,6 +157,3 @@ bash ${BASEDIR}/apps/jetbrains-toolbox/jetbrains-toolbox.sh
 sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh" "$android_variables"
 
 echo "Instalação finalizada!"
-
-echo "Adicione o plugin 'bgnotify' ao zsh caso queira notificações para os processos do terminal"
-

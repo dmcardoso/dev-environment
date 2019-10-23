@@ -36,6 +36,7 @@ fi\n" >> /home/$USER/.zshrc
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 sed -Ei "s/^(ZSH_THEME=\").*(\")$/\1spaceship\2/" /home/$USER/.zshrc
+sed -Ei "s/plugins=(git)/plugins=(git bgnotify)/g" /home/$USER/.zshrc
 
 # Instala repositório de plugins
 sh -cI "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
