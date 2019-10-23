@@ -8,4 +8,4 @@ fi
 
 BASEDIR=$(dirname "$0")
 
-apt-get install composer -y
+apt install composer -y

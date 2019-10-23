@@ -10,11 +10,11 @@ BASEDIR=$(dirname "$0")
 
 ## Java 8 sdk
 add-apt-repository ppa:openjdk-r/ppa -y
-apt-get update -y
-apt-get install openjdk-8-jdk -y
+apt update -y
+apt install openjdk-8-jdk -y
 
 # Libs gráficas 32 bits para o ubuntu
-apt-get install gcc-multilib lib32z1 lib32stdc++6 -y
+apt install gcc-multilib lib32z1 lib32stdc++6 -y
 
 echo -e "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/$USER/.bash_profile

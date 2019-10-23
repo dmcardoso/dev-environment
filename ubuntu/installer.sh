@@ -134,10 +134,10 @@ fi
 bash ${BASEDIR}/apps/composer/composer.sh
 
 # VLC
-apt-get install vlc -y
+apt install vlc -y
 
 # Unrar
-apt-get install unrar -y
+apt install unrar -y
 
 # Postman
 bash ${BASEDIR}/apps/postman/postman.sh
@@ -147,8 +147,8 @@ bash ${BASEDIR}/apps/drivers/video.sh
 
 # Monitor de sistema Stacer
 add-apt-repository ppa:oguzhaninan/stacer -y
-apt-get update -y
-apt-get install stacer -y
+apt update -y
+apt install stacer -y
 
 ## Xampp
 bash ${BASEDIR}/apps/xampp/xampp.sh

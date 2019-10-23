@@ -11,5 +11,5 @@ BASEDIR=$(dirname "$0")
 # Faz o download da nova versão e instala
 wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O /tmp/chrome.deb
 dpkg -i /tmp/chrome.deb
-apt-get install -f -y
+apt install -f -y
 rm -f /tmp/chrome.deb
