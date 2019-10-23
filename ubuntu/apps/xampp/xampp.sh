@@ -39,3 +39,6 @@ ln -s /otp/lampp/lampp /usr/local/bin/lampp
 # Permissões
 chmod -R 755 /opt/lampp/htdocs
 chown -R $USER:$USER /opt/lampp/htdocs
+
+sed -i "s/User daemon/User "$USER"/g" /opt/lampp/etc/httpd.conf
+sed -i "s/Group daemon/Group "$USER"/g" /opt/lampp/etc/httpd.conf
