@@ -117,6 +117,9 @@ apt install gpick -y
 ## Zsh
 apt install zsh -y
 
+# Coloca zsh como shell principal
+chsh -s $(which zsh)
+
 if [[ "$docker" == "y" ]]; then
   ## Docker
   apt install docker.io -y

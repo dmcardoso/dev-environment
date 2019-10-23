@@ -38,10 +38,12 @@ ln -s /opt/lampp/bin/mysqlcheck /usr/local/bin/mysqlcheck
 ln -s /opt/lampp/bin/php /usr/local/bin/php
 ln -s /otp/lampp/lampp /usr/local/bin/lampp
 
-
 # Permissões
 chmod -R 755 /opt/lampp/htdocs
-chown -R $USER:$USER /opt/lampp/htdocs
+chown -R $SUDO_USER:$SUDO_USER /opt/lampp/htdocs
 
-sed -i "s/User daemon/User "$USER"/g" /opt/lampp/etc/httpd.conf
-sed -i "s/Group daemon/Group "$USER"/g" /opt/lampp/etc/httpd.conf
+sed -i "s/User daemon/User "$SUDO_USER"/g" /opt/lampp/etc/httpd.conf
+sed -i "s/Group daemon/Group "$SUDO_USER"/g" /opt/lampp/etc/httpd.conf
+
+# Cria atalho para o htdocs do xampp na home do usuário
+ln -s /opt/lampp/htdocs /home/$USER/xampp-htdocs
