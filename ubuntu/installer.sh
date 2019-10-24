@@ -56,6 +56,11 @@ apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ disco main'
 apt update -y
 apt install --install-recommends winehq-stable -y
 
+## Sticky notes
+add-apt-repository ppa:umang/indicator-stickynotes
+apt update
+apt install indicator-stickynotes
+
 ## Snap
 apt install snapd -y
 
@@ -153,7 +158,7 @@ apt install stacer -y
 ## Xampp
 bash ${BASEDIR}/apps/xampp/xampp.sh
 
-## Xampp
+## Jetbrains toolbox
 bash ${BASEDIR}/apps/jetbrains-toolbox/jetbrains-toolbox.sh
 
 # Executa o script de configuração customizada com o usuário real
