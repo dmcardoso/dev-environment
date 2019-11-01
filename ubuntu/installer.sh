@@ -10,6 +10,7 @@ BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 
 read -r -p "Instalar o docker? [y/N] " docker
 read -r -p "Adicionar variáveis  do android? [y/N] " android_variables
+read -r -p "Instalar draw.io? [y/N] " install_drawio
 
 # Atualização de pacotes
 apt update -y
@@ -67,8 +68,14 @@ apt install snapd -y
 ## Java
 bash ${BASEDIR}/apps/java-8/java.sh
 
-## Simplenote
-snap install simplenote -y
+## Cacher
+snap install cacher
+
+ 
+if [[ "$install_drawio" == "y" ]]; then
+    ## Draw.io
+    snap install drawio
+fi
 
 ## Spotify
 snap install spotify -y
