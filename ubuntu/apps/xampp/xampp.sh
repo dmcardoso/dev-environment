@@ -14,18 +14,16 @@ chmod +x xampp-installer.run
 ./xampp-installer.run
 rm -f ./xampp-installer.run
 
-cat > $USER/.local/share/applications/xampp.desktop <<EOL
-[Desktop Entry]
-Version=1.0
-Encoding=UTF-8
-Name=XAMPP Control Panel
-Comment=Start and Stop XAMPP
-Exec=lxqt-sudo /opt/lampp/manager-linux-x64.run
-Icon=/opt/lampp/htdocs/favicon.ico
-Type=Application
-Terminal=true
-Categories=Development;
-EOL
+echo -e "[Desktop Entry]\n
+Version=1.0\n
+Encoding=UTF-8\n
+Name=XAMPP Control Panel\n
+Comment=Start and Stop XAMPP\n
+Exec=lxqt-sudo /opt/lampp/manager-linux-x64.run\n
+Icon=/opt/lampp/htdocs/favicon.ico\n
+Type=Application\n
+Terminal=true\n
+Categories=Development;\n" >> /home/$USER/.local/share/applications/xampp.desktop
 
 chmod +x /usr/share/applications/xampp.desktop
 chmod +x $USER/.local/share/applications/xampp.desktop

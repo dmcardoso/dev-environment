@@ -60,7 +60,7 @@ apt install --install-recommends winehq-stable -y
 ## Sticky notes
 add-apt-repository ppa:umang/indicator-stickynotes
 apt update
-apt install indicator-stickynotes
+apt install indicator-stickynotes -y
 
 ## Snap
 apt install snapd -y
@@ -78,13 +78,13 @@ if [[ "$install_drawio" == "y" ]]; then
 fi
 
 ## Spotify
-snap install spotify -y
+snap install spotify
 
 ## Gimp
-snap install gimp -y
+snap install gimp
 
 ## Inkscape
-snap install inkscape -y
+snap install inkscape
 
 ## Chrome
 bash ${BASEDIR}/apps/chrome/chrome.sh
