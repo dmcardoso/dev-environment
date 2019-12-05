@@ -45,3 +45,8 @@ sed -i "s/Group daemon/Group "$SUDO_USER"/g" /opt/lampp/etc/httpd.conf
 
 # Cria atalho para o htdocs do xampp na home do usuário
 ln -s /opt/lampp/htdocs /home/$USER/xampp-htdocs
+
+# Extensões do php
+apt install php-gd
+apt install php-curl
+apt install php-xml
