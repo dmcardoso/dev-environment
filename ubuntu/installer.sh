@@ -60,7 +60,6 @@ apt install --install-recommends winehq-stable -y
 ## Sticky notes
 add-apt-repository ppa:umang/indicator-stickynotes
 apt update
-apt install indicator-stickynotes -y
 
 ## Snap
 apt install snapd -y
@@ -70,6 +69,9 @@ bash ${BASEDIR}/apps/java-8/java.sh
 
 ## Cacher
 snap install cacher
+
+## Notes
+snap install stickynotes
 
  
 if [[ "$install_drawio" == "y" ]]; then
