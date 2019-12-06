@@ -144,9 +144,6 @@ if [[ "$docker" == "y" ]]; then
   usermod -aG docker $SUDO_USER
 fi
 
-## Composer
-bash ${BASEDIR}/apps/composer/composer.sh
-
 # VLC
 apt install vlc -y
 
@@ -166,6 +163,9 @@ apt install stacer -y
 
 ## Xampp
 bash ${BASEDIR}/apps/xampp/xampp.sh
+
+## Composer
+bash ${BASEDIR}/apps/composer/composer.sh
 
 ## Jetbrains toolbox
 bash ${BASEDIR}/apps/jetbrains-toolbox/jetbrains-toolbox.sh
