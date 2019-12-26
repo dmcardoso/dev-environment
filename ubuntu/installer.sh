@@ -11,6 +11,7 @@ BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 read -r -p "Instalar o docker? [y/N] " docker
 read -r -p "Adicionar variáveis  do android? [y/N] " android_variables
 read -r -p "Instalar draw.io? [y/N] " install_drawio
+read -r -p "Instalar telegram? [y/N] " install_telegram
 
 # Atualização de pacotes
 apt update -y
@@ -73,9 +74,16 @@ snap install cacher
 ## Notes
 snap install stickynotes
 
- 
+## Figma
+snap install figma-linux
+
+## Telegram
+if [[ install_telegram == "y" ]]; then
+  snap install telegram-desktop
+fi
+
+## Draw.io
 if [[ "$install_drawio" == "y" ]]; then
-    ## Draw.io
     snap install drawio
 fi
 
