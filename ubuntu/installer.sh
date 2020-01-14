@@ -190,4 +190,11 @@ fi
 # Executa o script de configuração customizada com o usuário real
 sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh" "$android_variables"
 
+# Tema para o terminal
+apt-get install dconf-cli -y
+
+git clone https://github.com/dracula/gnome-terminal /opt/gnome-terminal
+/opt/gnome-terminal/install.sh
+
 echo "Instalação finalizada!"
+
