@@ -12,6 +12,8 @@ read -r -p "Instalar o docker? [y/N] " docker
 read -r -p "Adicionar variáveis  do android? [y/N] " android_variables
 read -r -p "Instalar draw.io? [y/N] " install_drawio
 read -r -p "Instalar telegram? [y/N] " install_telegram
+read -r -p "Instalar VSCode? [y/N] " install_vscode
+read -r -p "Instalar jetbrains toolbox? [y/N] " jetbrains_toolbox
 
 # Atualização de pacotes
 apt update -y
@@ -82,6 +84,16 @@ if [[ install_telegram == "y" ]]; then
   snap install telegram-desktop
 fi
 
+## VS Code
+if [[ install_vscode == "y" ]]; then
+  snap install code --classic
+fi
+
+## Discord
+if [[ install_vscode == "y" ]]; then
+  snap install discord
+fi
+
 ## Draw.io
 if [[ "$install_drawio" == "y" ]]; then
     snap install drawio
@@ -127,12 +139,8 @@ git config --global credential.helper store
 ## Filezilla
 apt install filezilla -y
 
-## Mongodb compass
-wget https://downloads.mongodb.com/compass/mongodb-compass-community_1.20.2_amd64.deb
-apt --fix-broken install
-apt install libgconf-2-4 -y
-dpkg -i mongodb-compass-community_1.20.2_amd64.deb
-rm -f mongodb-compass-community_1.20.2_amd64.deb
+## MongoDB Compass
+bash ${BASEDIR}/apps/mongodb-compass/mongodb-compass.sh
 
 ## Navicat
 bash ${BASEDIR}/apps/navicat/navicat.sh
@@ -182,8 +190,10 @@ bash ${BASEDIR}/apps/xampp/xampp.sh
 ## Composer
 bash ${BASEDIR}/apps/composer/composer.sh
 
-## Jetbrains toolbox
-bash ${BASEDIR}/apps/jetbrains-toolbox/jetbrains-toolbox.sh
+if [[ "$jetbrains_toolbox" == "y" ]]; then
+  ## Jetbrains toolbox
+  bash ${BASEDIR}/apps/jetbrains-toolbox/jetbrains-toolbox.sh
+fi
 
 # Executa o script de configuração customizada com o usuário real
 sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh" "$android_variables"
