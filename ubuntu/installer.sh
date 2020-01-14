@@ -13,6 +13,7 @@ read -r -p "Adicionar variáveis  do android? [y/N] " android_variables
 read -r -p "Instalar draw.io? [y/N] " install_drawio
 read -r -p "Instalar telegram? [y/N] " install_telegram
 read -r -p "Instalar VSCode? [y/N] " install_vscode
+read -r -p "Instalar discord? [y/N] " install_discord
 read -r -p "Instalar jetbrains toolbox? [y/N] " jetbrains_toolbox
 
 # Atualização de pacotes
@@ -60,10 +61,6 @@ apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ disco main'
 apt update -y
 apt install --install-recommends winehq-stable -y
 
-## Sticky notes
-add-apt-repository ppa:umang/indicator-stickynotes
-apt update
-
 ## Snap
 apt install snapd -y
 
@@ -80,17 +77,17 @@ snap install stickynotes
 snap install figma-linux
 
 ## Telegram
-if [[ install_telegram == "y" ]]; then
+if [[ "$install_telegram" == "y" ]]; then
   snap install telegram-desktop
 fi
 
 ## VS Code
-if [[ install_vscode == "y" ]]; then
+if [[ "$install_vscode" == "y" ]]; then
   snap install code --classic
 fi
 
 ## Discord
-if [[ install_vscode == "y" ]]; then
+if [[ "$install_discord" == "y" ]]; then
   snap install discord
 fi
 
@@ -178,11 +175,6 @@ bash ${BASEDIR}/apps/postman/postman.sh
 
 ## Drivers
 bash ${BASEDIR}/apps/drivers/video.sh
-
-# Monitor de sistema Stacer
-add-apt-repository ppa:oguzhaninan/stacer -y
-apt update -y
-apt install stacer -y
 
 ## Xampp
 bash ${BASEDIR}/apps/xampp/xampp.sh

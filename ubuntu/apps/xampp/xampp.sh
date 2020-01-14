@@ -25,8 +25,7 @@ Type=Application\n
 Terminal=true\n
 Categories=Development;\n" >> /home/$USER/.local/share/applications/xampp.desktop
 
-chmod +x /usr/share/applications/xampp.desktop
-chmod +x $USER/.local/share/applications/xampp.desktop
+chmod +x /home/$USER/.local/share/applications/xampp.desktop
 
 # Links de acesso
 ln -s /opt/lampp/bin/mysql /usr/local/bin/mysql
@@ -44,9 +43,9 @@ sed -i "s/User daemon/User "$SUDO_USER"/g" /opt/lampp/etc/httpd.conf
 sed -i "s/Group daemon/Group "$SUDO_USER"/g" /opt/lampp/etc/httpd.conf
 
 # Cria atalho para o htdocs do xampp na home do usuário
-ln -s /opt/lampp/htdocs /home/$USER/xampp-htdocs
+ln -s /opt/lampp/htdocs /home/$USER/htdocs
 
 # Extensões do php
-apt install php-gd
-apt install php-curl
-apt install php-xml
+apt install php-gd -y
+apt install php-curl -y
+apt install php-xml -y
