@@ -16,6 +16,7 @@ read -r -p "Instalar VSCode? [y/N] " install_vscode
 read -r -p "Instalar discord? [y/N] " install_discord
 read -r -p "Instalar jetbrains toolbox? [y/N] " jetbrains_toolbox
 read -r -p "Instalar android studio? [y/N] " android_studio
+read -r -p "Instalar slack? [y/N] " install_slack
 
 # Atualização de pacotes
 apt update -y
@@ -95,6 +96,11 @@ fi
 ## Draw.io
 if [[ "$install_drawio" == "y" ]]; then
     snap install drawio
+fi
+
+## Draw.io
+if [[ "$install_slack" == "y" ]]; then
+    snap install slack --classic
 fi
 
 ## Spotify
