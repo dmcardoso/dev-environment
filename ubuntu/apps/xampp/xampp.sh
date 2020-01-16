@@ -23,9 +23,9 @@ Exec=lxqt-sudo /opt/lampp/manager-linux-x64.run\n
 Icon=/opt/lampp/htdocs/favicon.ico\n
 Type=Application\n
 Terminal=true\n
-Categories=Development;\n" >> /home/$USER/.local/share/applications/xampp.desktop
+Categories=Development;\n" >> /home/$SUDO_USER/.local/share/applications/xampp.desktop
 
-chmod +x /home/$USER/.local/share/applications/xampp.desktop
+chmod +x /home/$SUDO_USER/.local/share/applications/xampp.desktop
 
 # Links de acesso
 ln -s /opt/lampp/bin/mysql /usr/local/bin/mysql
@@ -43,7 +43,7 @@ sed -i "s/User daemon/User "$SUDO_USER"/g" /opt/lampp/etc/httpd.conf
 sed -i "s/Group daemon/Group "$SUDO_USER"/g" /opt/lampp/etc/httpd.conf
 
 # Cria atalho para o htdocs do xampp na home do usuário
-ln -s /opt/lampp/htdocs /home/$USER/htdocs
+ln -s /opt/lampp/htdocs /home/$SUDO_USER/htdocs
 
 # Extensões do php
 apt install php-gd -y

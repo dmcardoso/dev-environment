@@ -15,6 +15,7 @@ read -r -p "Instalar telegram? [y/N] " install_telegram
 read -r -p "Instalar VSCode? [y/N] " install_vscode
 read -r -p "Instalar discord? [y/N] " install_discord
 read -r -p "Instalar jetbrains toolbox? [y/N] " jetbrains_toolbox
+read -r -p "Instalar android studio? [y/N] " android_studio
 
 # Atualização de pacotes
 apt update -y
@@ -190,6 +191,11 @@ fi
 # Executa o script de configuração customizada com o usuário real
 sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh" "$android_variables"
 
+## Android studio
+if [[ "$android_studio" == "y" ]]; then
+    snap install android-studio --classic
+fi
+
 # Tema para o terminal
 apt-get install dconf-cli -y
 
@@ -197,4 +203,3 @@ git clone https://github.com/dracula/gnome-terminal /opt/gnome-terminal
 /opt/gnome-terminal/install.sh
 
 echo "Instalação finalizada!"
-

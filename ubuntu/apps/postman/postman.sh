@@ -14,7 +14,7 @@ tar -xzf postman.tar.gz -C /opt
 rm postman.tar.gz
 ln -s /opt/Postman/Postman /usr/bin/postman
 
-cat > /home/$USER/.local/share/applications/postman.desktop <<EOL
+cat > /home/$SUDO_USER/.local/share/applications/postman.desktop <<EOL
 [Desktop Entry]
 Encoding=UTF-8
 Name=Postman
@@ -24,5 +24,3 @@ Terminal=false
 Type=Application
 Categories=Development;
 EOL
-
-
