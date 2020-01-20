@@ -17,6 +17,7 @@ read -r -p "Instalar discord? [y/N] " install_discord
 read -r -p "Instalar jetbrains toolbox? [y/N] " jetbrains_toolbox
 read -r -p "Instalar android studio? [y/N] " android_studio
 read -r -p "Instalar slack? [y/N] " install_slack
+read -r -p "Instalar skype? [y/N] " install_skype
 
 # Atualização de pacotes
 apt update -y
@@ -68,6 +69,14 @@ apt install snapd -y
 
 ## Java
 bash ${BASEDIR}/apps/java-8/java.sh
+
+## Skype
+if [[ "$install_skype" == "y" ]]; then
+    wget https://go.skype.com/skypeforlinux-64.deb
+    apt install ./skypeforlinux-64.deb
+    rm -rf ./skypeforlinux-64.deb
+fi
+
 
 ## Cacher
 snap install cacher
