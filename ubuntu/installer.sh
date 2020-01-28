@@ -19,6 +19,7 @@ read -r -p "Instalar android studio? [y/N] " android_studio
 read -r -p "Instalar php storm? [y/N] " install_phpstorm
 read -r -p "Instalar slack? [y/N] " install_slack
 read -r -p "Instalar skype? [y/N] " install_skype
+read -r -p "Instalar insomnia? [y/N] " install_insomnia
 
 # Atualização de pacotes
 apt update -y
@@ -116,6 +117,11 @@ fi
 ## PHP Storm
 if [[ "$install_phpstorm" == "y" ]]; then
     snap install phpstorm --classic
+fi
+
+## Insomnia
+if [[ "$install_insomnia" == "y" ]]; then
+    snap install insomnia
 fi
 
 ## Spotify
