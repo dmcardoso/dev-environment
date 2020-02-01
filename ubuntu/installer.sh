@@ -20,6 +20,7 @@ read -r -p "Instalar php storm? [y/N] " install_phpstorm
 read -r -p "Instalar slack? [y/N] " install_slack
 read -r -p "Instalar skype? [y/N] " install_skype
 read -r -p "Instalar insomnia? [y/N] " install_insomnia
+read -r -p "Instalar postbird? [y/N] " install_postbird
 
 # Atualização de pacotes
 apt update -y
@@ -122,6 +123,11 @@ fi
 ## Insomnia
 if [[ "$install_insomnia" == "y" ]]; then
     snap install insomnia
+fi
+
+## Postbird
+if [[ "$install_postbird" == "y" ]]; then
+    snap install postbird
 fi
 
 ## Spotify
