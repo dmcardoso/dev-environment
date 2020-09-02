@@ -29,6 +29,7 @@ read -r -p "Instalar Zoom? [y/N] " install_zoom
 read -r -p "Instalar mongo? [y/N] " install_mongo_compass
 read -r -p "Instalar xampp? [y/N] " install_xampp
 read -r -p "Instalar composer? [y/N] " install_composer
+read -r -p "Instalar postgres? [y/N] " install_postgres
 
 # Adiciona repositórios
 add-apt-repository ppa:linrunner/tlp -y
@@ -145,9 +146,14 @@ if [[ "$install_obs" == "y" ]]; then
     snap install obs-studio
 fi
 
-## OBS studio
+## Zoom
 if [[ "$install_zoom" == "y" ]]; then
     snap install zoom-client
+fi
+
+## Postgres
+if [[ "$install_postgres" == "y" ]]; then
+    apt install postgresql postgresql-contrib
 fi
 
 ## Spotify
