@@ -1,0 +1,15 @@
+[/]
+appicon-margin=2
+appicon-padding=6
+dot-position='BOTTOM'
+hot-keys=false
+hotkeys-overlay-combo='TEMPORARILY'
+location-clock='STATUSLEFT'
+panel-position='BOTTOM'
+panel-size=32
+show-clock-all-monitors=true
+show-favorites-all-monitors=true
+show-status-menu-all-monitors=true
+status-icon-padding=0
+taskbar-position='LEFTPANEL'
+tray-padding=-1

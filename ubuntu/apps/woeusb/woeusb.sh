@@ -8,6 +8,5 @@ fi
 
 BASEDIR=$(dirname "$0")
 
-apt install composer -y
-
-echo -e "export PATH=\$PATH:\$HOME/.config/composer/vendor/bin" >> /home/$USER/.zshrc
+dpkg -i ${BASEDIR}/assets/woeusb_3.3.1-1_webupd8_bionic0_amd64.deb
+sudo apt install -f

@@ -15,18 +15,28 @@ read -r -p "Instalar telegram? [y/N] " install_telegram
 read -r -p "Instalar VSCode? [y/N] " install_vscode
 read -r -p "Instalar discord? [y/N] " install_discord
 read -r -p "Instalar jetbrains toolbox? [y/N] " jetbrains_toolbox
+read -r -p "Instalar notable? [y/N] " notable
 read -r -p "Instalar android studio? [y/N] " android_studio
 read -r -p "Instalar php storm? [y/N] " install_phpstorm
-read -r -p "Instalar slack? [y/N] " install_slack
 read -r -p "Instalar skype? [y/N] " install_skype
 read -r -p "Instalar insomnia? [y/N] " install_insomnia
-read -r -p "Instalar postbird? [y/N] " install_postbird
+read -r -p "Instalar Xtream Downloader? [y/N] " install_xtreamdownloader
+read -r -p "Instalar OBS? [y/N] " install_obs
+read -r -p "Instalar WOEUSB? [y/N] " install_woeusb
+read -r -p "Instalar DBeaver? [y/N] " install_dbeaver
+read -r -p "Instalar AppImageLauncher? [y/N] " install_appimagelauncher
+read -r -p "Instalar Zoom? [y/N] " install_zoom
+
+# Adiciona repositórios
+add-apt-repository ppa:linrunner/tlp -y
+add-apt-repository multiverse -y
 
 # Atualização de pacotes
 apt update -y
 apt upgrade -y
 
 # Essencial
+apt install tlp tlp-rdw -y
 
 # Minhas Fonts
 bash ${BASEDIR}/apps/fonts/fonts.sh
@@ -63,7 +73,7 @@ apt install chrome-gnome-shell -y
 dpkg --add-architecture i386
 wget -nc https://dl.winehq.org/wine-builds/winehq.key
 apt-key add winehq.key
-apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ disco main'
+apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ disco main' -y
 apt update -y
 apt install --install-recommends winehq-stable -y
 
@@ -72,6 +82,11 @@ apt install snapd -y
 
 ## Java
 bash ${BASEDIR}/apps/java-8/java.sh
+
+## Xtream Downloader
+if [[ "$install_xtreamdownloader" == "y" ]]; then
+    apt install xdman-downloader -y
+fi
 
 ## Skype
 if [[ "$install_skype" == "y" ]]; then
@@ -100,6 +115,11 @@ if [[ "$install_vscode" == "y" ]]; then
   snap install code --classic
 fi
 
+## VS Code
+if [[ "$install_woeusb" == "y" ]]; then
+  bash ${BASEDIR}/apps/woeusb/woeusb.sh
+fi
+
 ## Discord
 if [[ "$install_discord" == "y" ]]; then
   snap install discord
@@ -108,11 +128,6 @@ fi
 ## Draw.io
 if [[ "$install_drawio" == "y" ]]; then
     snap install drawio
-fi
-
-## Draw.io
-if [[ "$install_slack" == "y" ]]; then
-    snap install slack --classic
 fi
 
 ## PHP Storm
@@ -125,9 +140,14 @@ if [[ "$install_insomnia" == "y" ]]; then
     snap install insomnia
 fi
 
-## Postbird
-if [[ "$install_postbird" == "y" ]]; then
-    snap install postbird
+## OBS studio
+if [[ "$install_obs" == "y" ]]; then
+    snap install obs-studio
+fi
+
+## OBS studio
+if [[ "$install_zoom" == "y" ]]; then
+    snap install zoom-client
 fi
 
 ## Spotify
@@ -150,22 +170,24 @@ apt install vim -y
 
 ## Flameshot Screenshot
 apt install flameshot -y
-## Release printscree key
-gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot ''
-## Set new custom binding
-gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
-## Set name
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'flameshot'
-## Set command
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command '/usr/bin/flameshot gui'
-## Set binding
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding 'Print'
+
+## App image launcher
+if [[ "$install_appimagelauncher" == "y" ]]; then
+  wget https://github.com/TheAssassin/AppImageLauncher/releases/download/continuous/appimagelauncher-lite-2.1.0-travis896-d1be7e7-x86_64.AppImage -O appimagelauncher.deb
+  dpkg -i appimagelauncher.deb
+  apt install -f
+  rm -rf appimagelauncher.deb
+fi
 
 # Desenvolvimento
 
 ## Git
 apt install git -y
 git config --global credential.helper store
+
+## Virtualbox
+apt install virtualbox
+apt install virtualbox-ext-pack
 
 ## Filezilla
 apt install filezilla -y
@@ -191,7 +213,7 @@ chsh -s $(which zsh)
 if [[ "$docker" == "y" ]]; then
   ## Docker
   apt install docker.io -y
-  curl -L https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+  curl -L https://github.com/docker/compose/releases/download/1.25.5/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
   chmod +x /usr/local/bin/docker-compose
   systemctl enable docker
   groupadd docker
@@ -205,7 +227,7 @@ apt install vlc -y
 apt install unrar -y
 
 # Postman
-bash ${BASEDIR}/apps/postman/postman.sh
+snap install postman
 
 ## Drivers
 bash ${BASEDIR}/apps/drivers/video.sh
@@ -221,6 +243,16 @@ if [[ "$jetbrains_toolbox" == "y" ]]; then
   bash ${BASEDIR}/apps/jetbrains-toolbox/jetbrains-toolbox.sh
 fi
 
+if [[ "$notable" == "y" ]]; then
+  ## Jetbrains toolbox
+  snap install notable --classic
+fi
+
+if [[ "$install_dbeaver" == "y" ]]; then
+  ## Dbeaver
+  snap install dbeaver-ce
+fi
+
 # Executa o script de configuração customizada com o usuário real
 sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh" "$android_variables"
 
@@ -230,7 +262,7 @@ if [[ "$android_studio" == "y" ]]; then
 fi
 
 # Tema para o terminal
-apt-get install dconf-cli -y
+apt install dconf-cli -y
 
 git clone https://github.com/dracula/gnome-terminal /opt/gnome-terminal
 /opt/gnome-terminal/install.sh

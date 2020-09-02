@@ -3,3 +3,5 @@
 [user]
 	name = Daniel Moreira
 	email = dmcardoso.99@hotmail.com
+[core]
+    editor = vim

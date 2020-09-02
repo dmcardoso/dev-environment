@@ -49,3 +49,4 @@ ln -s /opt/lampp/htdocs /home/$SUDO_USER/htdocs
 apt install php-gd -y
 apt install php-curl -y
 apt install php-xml -y
+apt install php-zip -y

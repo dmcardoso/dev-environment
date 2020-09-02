@@ -8,12 +8,5 @@ fi
 
 BASEDIR=$(dirname "$0")
 
-# Download e instalação
-wget "http://download3.navicat.com/download/navicat121_premium_en_x64.tar.gz" -O /tmp/navicat.tar.gz
-tar -zvxf /tmp/navicat.tar.gz -C /tmp
-mv /tmp/navicat121_premium_en_x64 /opt/navicat
-rm -f /tmp/navicat.tar.gz
-
-# Icone de inicialização
-cp ${BASEDIR}/assets/icon.png /opt/navicat/icon.png
-cp ${BASEDIR}/assets/navicat.desktop /usr/share/applications/navicat.desktop
+# Download
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1iHXlFCh7lVghs4Qj7HHPL6JiN7odxJy1' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1iHXlFCh7lVghs4Qj7HHPL6JiN7odxJy1" -O /home/$USER/Downloads/navicat.zip && rm -rf /tmp/cookies.txt
