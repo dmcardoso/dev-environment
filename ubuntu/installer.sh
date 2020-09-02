@@ -26,6 +26,9 @@ read -r -p "Instalar WOEUSB? [y/N] " install_woeusb
 read -r -p "Instalar DBeaver? [y/N] " install_dbeaver
 read -r -p "Instalar AppImageLauncher? [y/N] " install_appimagelauncher
 read -r -p "Instalar Zoom? [y/N] " install_zoom
+read -r -p "Instalar mongo? [y/N] " install_mongo_compass
+read -r -p "Instalar xampp? [y/N] " install_xampp
+read -r -p "Instalar composer? [y/N] " install_composer
 
 # Adiciona repositórios
 add-apt-repository ppa:linrunner/tlp -y
@@ -98,9 +101,6 @@ fi
 
 ## Cacher
 snap install cacher
-
-## Notes
-snap install stickynotes
 
 ## Figma
 snap install figma-linux
@@ -189,11 +189,10 @@ git config --global credential.helper store
 apt install virtualbox
 apt install virtualbox-ext-pack
 
-## Filezilla
-apt install filezilla -y
-
-## MongoDB Compass
-bash ${BASEDIR}/apps/mongodb-compass/mongodb-compass.sh
+if [[ "$install_mongo_compass" == "y" ]]; then
+    ## MongoDB Compass
+    bash ${BASEDIR}/apps/mongodb-compass/mongodb-compass.sh
+fi
 
 ## Navicat
 bash ${BASEDIR}/apps/navicat/navicat.sh
@@ -232,11 +231,15 @@ snap install postman
 ## Drivers
 bash ${BASEDIR}/apps/drivers/video.sh
 
-## Xampp
-bash ${BASEDIR}/apps/xampp/xampp.sh
+if [[ "$install_xampp" == "y" ]]; then
+    ## Xampp
+    bash ${BASEDIR}/apps/xampp/xampp.sh
+fi
 
-## Composer
-bash ${BASEDIR}/apps/composer/composer.sh
+if [[ "$install_composer" == "y" ]]; then
+    ## Composer
+    bash ${BASEDIR}/apps/composer/composer.sh
+fi
 
 if [[ "$jetbrains_toolbox" == "y" ]]; then
   ## Jetbrains toolbox
