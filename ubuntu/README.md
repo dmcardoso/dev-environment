@@ -1,23 +1,25 @@
 # Ubuntu installers apps
 
-### Script de instalação
+### Using
 
-#### O segundo script possui dependências do primeiro, verificar se todos os programas foram instalados no primeiro script.
+`sudo bash install-cli.sh`
 
-**O seguinte script necessita a confirmação da instalação do docker.**
+`sudo bash install-cli.sh <apps | config>`
 
-`sudo bash installer.sh`
+### List apps 
 
-**O seguinte script instala programas que não necessitam de sudo**
+`sudo bash install-cli.sh help`
 
-`bash non-sudo-installer.sh`
+# Full environment
 
-### Extensões
+Install drivers and useful libraries
 
-As seguintes extensões devem ser baixadas no site [Gnome extensions](https://extensions.gnome.org/)
+### Using
 
-![Extensões](https://raw.githubusercontent.com/dmcardoso/dev-environment/master/ubuntu/assets/extensoes.png "Extensões")
+`sudo bash environment/environment.sh`
 
-### Adicionais
+### Extensions
 
-* Instalar jetbrains toolbox
+Downloads: [Gnome extensions](https://extensions.gnome.org/)
+
+![Extensions](https://raw.githubusercontent.com/dmcardoso/dev-environment/master/ubuntu/assets/extensoes.png "Extensions")

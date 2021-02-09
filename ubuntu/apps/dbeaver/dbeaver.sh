@@ -8,5 +8,8 @@ fi
 
 BASEDIR=$(dirname "$0")
 
-cp -r ${BASEDIR}/assets /usr/share/fonts/Minhas\ Fonts
-fc-cache -v -f
+curl -L https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -o "${BASEDIR}/dbeaver.deb"
+
+dpkg -i "${BASEDIR}/dbeaver.deb"
+
+rm -rf "${BASEDIR}/dbeaver.deb"

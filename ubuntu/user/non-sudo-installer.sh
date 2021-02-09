@@ -6,17 +6,24 @@ if [[ "$(id -u)" == "0" ]]; then
 fi
 
 android_variables=$1
+install_zsh=$2
+install_nvm=$3
 
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
-
-## Node version manager
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-
-## Instala oh my zsh
-bash "$BASEDIR/apps/zsh/zsh.sh"
+UBUNTU_DIR="$(cd "$(dirname "$0")" && cd .. && pwd)"
 
 # Copia arquivos de configuração para a pasta do usuário
-bash "$BASEDIR/dotfiles/dotfiles.sh"
+bash "$UBUNTU_DIR/dotfiles/dotfiles.sh"
+
+## Node version manager
+if [[ "$install_nvm" == "y" ]]; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+fi
+
+## Instala oh my zsh
+if [[ "$install_zsh" == "y" ]]; then
+    bash "$UBUNTU_DIR/apps/zsh/zsh.sh" "$install_nvm"
+fi
 
 # Adiciona variáveis do android para o zsh
 if [[ "$android_variables" == "y" ]]; then

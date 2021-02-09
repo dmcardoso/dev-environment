@@ -2,6 +2,8 @@
 
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 
+install_nvm=$1
+
 ## Instala My Zsh
 sh -cI "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -49,8 +51,9 @@ echo "zplugin light zsh-users/zsh-autosuggestions" >> /home/$USER/.zshrc
 echo "zplugin light zsh-users/zsh-completions" >> /home/$USER/.zshrc
 
 # Nvm para o zsh
-echo -e "export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion" >> /home/$USER/.zshrc
+if [[ "$install_nvm" == "y" ]]; then
+  echo -e "export NVM_DIR="$HOME/.nvm"
+  [ -s "\$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh"  # This loads nvm" >> /home/$USER/.zshrc
+fi
 
 echo -e "$(cat /home/$USER/.bash_profile)" >> /home/$USER/.zshrc
