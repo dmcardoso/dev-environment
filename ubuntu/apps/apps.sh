@@ -213,6 +213,21 @@ if [[ $(find_choice "dbeaver") == "y" ]]; then
   bash ${BASEDIR}/dbeaver/dbeaver.sh
 fi
 
+## FFMpeg
+if [[ $(find_choice "ffmpeg") == "y" ]]; then
+  bash ${BASEDIR}/ffmpeg/ffmpeg.sh
+fi
+
+## Google cloud sdk
+if [[ $(find_choice "google_cloud") == "y" ]]; then
+  snap install google-cloud-sdk --classic
+fi
+
+## Notion
+if [[ $(find_choice "notion-snap") == "y" ]]; then
+  snap install notion-snap
+fi
+
 ## Android studio
 if [[ $(find_choice "android") == "y" ]]; then
   snap install android-studio --classic

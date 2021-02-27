@@ -25,7 +25,7 @@ function format_choice() {
 
 APPS=($@)
 DEFINITIONS=(terminal_theme android_variables non_sudo_installer)
-APP_NAMES=(draw_io docker telegram vscode discord notable android skype insomnia xtream obs woeusb dbeaver appimagelauncher zoom mongo xampp composer postgres cacher figma spotify gimp inkscape chrome bittorrent flameshot git virtualbox navicat screenruler zsh vlc unrar postman nvm phpstorm beekeeper bitwarden guvcview)
+APP_NAMES=(draw_io docker telegram vscode discord notable android skype insomnia xtream obs woeusb dbeaver appimagelauncher zoom mongo xampp composer postgres cacher figma spotify gimp inkscape chrome bittorrent flameshot git virtualbox navicat screenruler zsh vlc unrar postman nvm phpstorm beekeeper bitwarden guvcview ffmpeg google_cloud notion-snap)
 
 if [[ ${#APPS[@]} > 0 ]]; then
   APP_CHOICES=()
