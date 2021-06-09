@@ -6,6 +6,7 @@ if [[ "$(id -u)" != "0" ]]; then
 fi
 
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
+APP_CHOICES="$@"
 
 function find_choice() {
   CHOICES=($APP_CHOICES)
@@ -33,5 +34,5 @@ fi
 
 # Executa o script de configuração customizada com o usuário real
 if [[ $(find_choice "non_sudo_installer") == "y" ]]; then
-  sudo -i -u ${SUDO_USER} bash "$BASEDIR/user/non-sudo-installer.sh" $(find_choice "android_variables") $(find_choice "zsh") $(find_choice "nvm")
+  sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh" $(find_choice "android_variables") $(find_choice "zsh") $(find_choice "nvm")
 fi
