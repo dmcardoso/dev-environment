@@ -1,35 +1,23 @@
 #!/usr/bin/env bash
 
 if [[ "$(id -u)" != "0" ]]; then
-   echo "This script must be run as root" 1>&2
-   exit
+  echo "This script must be run as root" 1>&2
+  exit
 fi
 
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 APP_CHOICES="$@"
 
-function find_choice() {
-  CHOICES=($APP_CHOICES)
-
-  for answer in ${!CHOICES[@]}; do
-    CHOICE_NAME="$(cut -d'=' -f1 <<<"${CHOICES[$answer]}")"
-    CHOICE_ANSWER="$(cut -d'=' -f2 <<<"${CHOICES[$answer]}")"
-
-    if [ $CHOICE_NAME == $1 ]; then
-      echo $CHOICE_ANSWER
-      return
-    fi
-  done
-
-  echo "n"
-  return
-}
+source "$(cd $BASEDIR && cd .. && pwd)"/functions/steps.sh
+source "$(cd $BASEDIR && cd .. && pwd)"/functions/choices.sh
 
 # Tema para o terminal
 if [[ $(find_choice "terminal_theme") == "y" ]]; then
+  begin_step "Installing therminal theme"
   apt install dconf-cli -y
   git clone https://github.com/dracula/gnome-terminal /opt/gnome-terminal
   /opt/gnome-terminal/install.sh
+  end_step "therminal theme Installed"
 fi
 
 # Executa o script de configuração customizada com o usuário real

@@ -3,5 +3,6 @@
 BASEDIR=$(dirname "$0")
 
 # Copiar Modelos
-cp -r ${BASEDIR}/assets/* /home/$USER/Modelos
+mkdir -p /home/$SUDO_USER/Modelos
+cp -r ${BASEDIR}/assets/* /home/$SUDO_USER/Modelos
 chown -R ${SUDO_USER}:${SUDO_USER} /home/$SUDO_USER/Modelos

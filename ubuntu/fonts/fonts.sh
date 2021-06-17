@@ -8,5 +8,6 @@ fi
 
 BASEDIR=$(dirname "$0")
 
+mkdir -p /usr/share/fonts/Minhas\ Fonts
 cp -r ${BASEDIR}/assets/* /usr/share/fonts/Minhas\ Fonts
 fc-cache -v -f

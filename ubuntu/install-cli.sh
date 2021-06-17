@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 if [[ "$(id -u)" != "0" ]]; then
-   echo "This script must be run as root" 1>&2
-   exit
+  echo "This script must be run as root" 1>&2
+  exit
 fi
 
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
@@ -24,8 +24,8 @@ function format_choice() {
 }
 
 APPS=($@)
-DEFINITIONS=(terminal_theme android_variables non_sudo_installer nvm zsh android_variables)
-APP_NAMES=(draw_io docker telegram vscode discord notable android skype insomnia xtream obs woeusb dbeaver appimagelauncher zoom mongo xampp composer postgres cacher figma spotify gimp inkscape chrome bittorrent flameshot git virtualbox navicat screenruler zsh vlc unrar postman nvm phpstorm beekeeper bitwarden guvcview ffmpeg google_cloud notion-snap)
+DEFINITIONS=(terminal_theme non_sudo_installer nvm zsh android_variables)
+APP_NAMES=(draw_io docker telegram vscode discord notable android skype insomnia xtream obs woeusb dbeaver appimagelauncher zoom mongo xampp composer postgres cacher figma spotify gimp inkscape chrome bittorrent flameshot git virtualbox navicat screenruler zsh vlc unrar postman nvm phpstorm beekeeper bitwarden guvcview ffmpeg google_cloud notion-snap slack myki gh java wine)
 
 if [[ ${#APPS[@]} > 0 ]]; then
   APP_CHOICES=()
@@ -78,6 +78,7 @@ else
 
   bash ${BASEDIR}/apps/apps.sh "${APP_CHOICES[*]}"
   bash ${BASEDIR}/user/customizations.sh "${DEFINITIONS_CHOICES[*]}"
-
-  echo "Instalação finalizada!"
 fi
+
+echo
+echo "Instalação finalizada!"
