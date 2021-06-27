@@ -21,14 +21,14 @@ end_step "dotfiles Added"
 ## Node version manager
 if [[ "$install_nvm" == "y" ]]; then
   begin_step "Installing nvm"
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+  bash "$UBUNTU_DIR/nvm/nvm.sh"
   end_step "nvm Installed"
 fi
 
 ## Instala oh my zsh
 if [[ "$install_zsh" == "y" ]]; then
   begin_step "Installing zsh"
-  bash "$UBUNTU_DIR/apps/zsh/zsh.sh" "$install_nvm"
+  bash "$UBUNTU_DIR/apps/zsh/zsh.sh"
   end_step "zsh Installed"
 fi
 

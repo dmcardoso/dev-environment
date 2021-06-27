@@ -347,3 +347,31 @@ if [[ $(find_choice "gh") == "y" ]]; then
   bash ${BASEDIR}/gh/gh.sh
   end_step "gh Installed"
 fi
+
+## intelij
+if [[ $(find_choice "intelij") == "y" ]]; then
+  begin_step "Installing intelij"
+  snap install intellij-idea-community --classic
+  end_step "intelij Installed"
+fi
+
+## kubernetes
+if [[ $(find_choice "kubernetes") == "y" ]]; then
+  begin_step "Installing kubernetes"
+  bash ${BASEDIR}/kubernetes/kubernetes.sh
+  end_step "kubernetes Installed"
+fi
+
+## awscli
+if [[ $(find_choice "awscli") == "y" ]]; then
+  begin_step "Installing awscli"
+  bash ${BASEDIR}/aws_cli/aws_cli.sh
+  end_step "awscli Installed"
+fi
+
+## terminator
+if [[ $(find_choice "terminator") == "y" ]]; then
+  begin_step "Installing terminator"
+  bash ${BASEDIR}/terminator/terminator.sh
+  end_step "terminator Installed"
+fi

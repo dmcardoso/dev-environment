@@ -6,6 +6,7 @@ if [[ "$(id -u)" != "0" ]]; then
 fi
 
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
+UBUNTU_DIR="$(cd "$(dirname "$0")" && cd .. && pwd)"
 APP_CHOICES="$@"
 
 source "$(cd $BASEDIR && cd .. && pwd)"/functions/steps.sh
@@ -23,4 +24,24 @@ fi
 # Executa o script de configuração customizada com o usuário real
 if [[ $(find_choice "non_sudo_installer") == "y" ]]; then
   sudo -i -u ${SUDO_USER} bash "$BASEDIR/non-sudo-installer.sh" $(find_choice "android_variables") $(find_choice "zsh") $(find_choice "nvm")
+fi
+
+# Configurações do zsh para docker
+if [[ $(find_choice "zsh") == "y" ]] && [[ $(find_choice "docker") == "y" ]]; then
+  bash ${BASEDIR}/docker/docker_zsh.sh
+fi
+
+# Configurações do zsh para kubernetes
+if [[ $(find_choice "zsh") == "y" ]] && [[ $(find_choice "kubernetes") == "y" ]]; then
+  bash ${BASEDIR}/kubernetes/kubernetes_zsh.sh
+fi
+
+# Configurações do zsh para aws cli
+if [[ $(find_choice "zsh") == "y" ]] && [[ $(find_choice "awscli") == "y" ]]; then
+  bash ${BASEDIR}/aws_cli/aws_cli_zsh.sh
+fi
+
+# Configurações do zsh para aws cli
+if [[ $(find_choice "zsh") == "y" ]] && [[ $(find_choice "nvm") == "y" ]]; then
+  bash ${BASEDIR}/nvm/nvm_zsh.sh
 fi

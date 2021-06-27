@@ -2,8 +2,6 @@
 
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 
-install_nvm=$1
-
 ## Instala My Zsh
 sh -cI "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -12,23 +10,11 @@ ZSH_CUSTOM="${ZSH_CUSTOM:-/home/$USER/.oh-my-zsh/custom}"
 
 echo ""  >> /home/$USER/.zshrc
 
-echo -e "SPACESHIP_PROMPT_ORDER=(
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  package       # Package section
-  node          # Node section
-  docker        # Docker section
-  git           # Git section (git_branch + git_status)
-  hg            # Mercurial section (hg_branch  + hg_status)
-  exec_time     # Execution time
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
+echo -e "
 SPACESHIP_USER_SHOW=always
 SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_SEPARATE_LINE=false
+SPACESHIP_USER_SHOW=always
 SPACESHIP_CHAR_SUFFIX=\" \""  >> /home/$USER/.zshrc
 
 # Adiciona .bash_aliases para os seus scripts serem reconhecidos no zsh
@@ -40,7 +26,7 @@ fi\n" >> /home/$USER/.zshrc
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 sed -Ei "s/^(ZSH_THEME=\").*(\")$/\1spaceship\2/" /home/$USER/.zshrc
-sed -Ei "s/plugins=(git)/plugins=(git bgnotify)/g" /home/$USER/.zshrc
+sed -Ei "s/^(plugins=\(git\))/plugins=(git bgnotify)/g" /home/$USER/.zshrc
 
 # Instala repositório de plugins
 sh -cI "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
@@ -51,11 +37,5 @@ echo "zplugin light zdharma/fast-syntax-highlighting" >> /home/$USER/.zshrc
 echo "zplugin light zsh-users/zsh-autosuggestions" >> /home/$USER/.zshrc
 # Adiciona autocomplete para ferramentas comuns como Yarn, Homebrew, NVM, Node, etc. É necessário apenas apertar TAB para completar;
 echo "zplugin light zsh-users/zsh-completions" >> /home/$USER/.zshrc
-
-# Nvm para o zsh
-if [[ "$install_nvm" == "y" ]]; then
-  echo -e "export NVM_DIR="$HOME/.nvm"
-  [ -s "\$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh"  # This loads nvm" >> /home/$USER/.zshrc
-fi
 
 echo -e "$(cat /home/$USER/.bash_profile)" >> /home/$USER/.zshrc

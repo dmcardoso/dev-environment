@@ -24,8 +24,8 @@ function format_choice() {
 }
 
 APPS=($@)
-DEFINITIONS=(terminal_theme non_sudo_installer nvm zsh android_variables)
-APP_NAMES=(draw_io docker telegram vscode discord notable android skype insomnia xtream obs woeusb dbeaver appimagelauncher zoom mongo xampp composer postgres cacher figma spotify gimp inkscape chrome bittorrent flameshot git virtualbox navicat screenruler zsh vlc unrar postman nvm phpstorm beekeeper bitwarden guvcview ffmpeg google_cloud notion-snap slack myki gh java wine)
+DEFINITIONS=(terminal_theme non_sudo_installer nvm zsh android_variables kubernetes awscli docker)
+APP_NAMES=(draw_io docker telegram vscode discord notable android skype insomnia xtream obs woeusb dbeaver appimagelauncher zoom mongo xampp composer postgres cacher figma spotify gimp inkscape chrome bittorrent flameshot git virtualbox navicat screenruler zsh vlc unrar postman nvm phpstorm beekeeper bitwarden guvcview ffmpeg google_cloud notion-snap slack myki gh java wine intelij kubernetes awscli terminator)
 
 if [[ ${#APPS[@]} > 0 ]]; then
   APP_CHOICES=()
